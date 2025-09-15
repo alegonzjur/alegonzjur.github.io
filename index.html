@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Alejandro Román</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            color: #333;
+        }
+        img{
+            justify-content: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .header h1 {
+            color: #2c3e50;
+        }
+        .header p {
+            color: #7f8c8d;
+        }
+        .section-title {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            font-size: 2em;
+            color: #2c3e50;
+        }
+        .project-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .project-card h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        .project-card .tags {
+            margin-bottom: 15px;
+        }
+        .project-card .tag {
+            background-color: #ecf0f1;
+            color: #34495e;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #bdc3c7;
+        }
+        
+        .project-media {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            text-align: center; 
+        }
+        .project-media img, .project-media iframe, .project-media audio {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px; 
+        }
+        .project-media iframe {
+             
+            width: 100%;
+            height: 300px; 
+        }
+        .button-container {
+            text-align: center;
+        }
+        .audio_control{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>Hola, soy Alejandro Román.</h1>
+            <p>Soy un desarrollador apasionado por el empleo de los datos para la obtención de perspectivas y conclusiones, además de su correcta explotación para la resolución de problemas.
+                 Aquí puedes encontrar mis proyectos organizados por áreas de especialización: <b>Machine Learning, Análisis de Datos y Procesamiento de Lenguaje Natural (NLP)</b></p>
+            <p>
+                <a href="https://linkedin.com/in/alegonjur" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/alegonzjur" target="_blank">GitHub</a> |
+                <a href="mailto:alegonjur@gmail.com">Correo</a>
+            </p>
+        </header>
+
+        <section>
+            <h2 class="section-title">📊 Proyectos de Análisis de Datos</h2>
+            
+            <div class="project-card">
+                <h3>Análisis de ventas de videojuegos digitales</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">PowerBI</span>
+                    <span class="tag">SQL</span>
+                </div>
+                <p>Análisis exploratorio de un dataset de ventas de la distribuidora de juegos digitales en ordenador conocida como Steam. 
+                    El objetivo de este análisis es buscar tendencias, mejores descuentos, estudiar los patrones de ofertas y observar el crecimiento de la plataforma.
+                    El proyecto incluye una introducción en el tema, limpieza de datos, visualización de información y la interpretación de los resultados.</p>
+                <div class="project-media">
+                    <img src="assets/images/dashboard_steam.gif" alt="GIF del dashboard de ventas de videojuegos" loading="lazy">
+                    <br>
+                    <small>Vista previa del dashboard interactivo mostrando filtros por género y plataforma.</small>
+                </div>
+                <div class="button-container">
+                    <a href="https://github.com/alegonzjur/PBX_Dashboards/tree/main/SteamSales" class="btn" target="_blank">Ver Proyecto en GitHub</a>
+                </div>
+                
+            </div>
+
+            <div class="project-card">
+                <h3>Dashboard de diagnostiación de diabetes</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">PowerBI</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">ML</span>
+                </div>
+                <p>Dashboard interactivo que facilita la visualización de las relaciones entre distintos factores de la diabetes.
+                    Se muestra información sobre mujeres de 21 años o más de India, que fueron diagnosticadas con diabetes o no. 
+                El objetivo del dashboard es encontrar patrones dentro de la información para prevenir la diabetes.</p>
+                <div class="project-media">
+                    <img src="assets/images/dashboard_diabetes.gif" alt="GIF del dashboard de diabetes" loading="lazy">
+                    <br>
+                    <small>Vista previa del dashboard interactivo mostrando distribuciones y relaciones de los datos.</small>
+                </div>
+                <div class="button-container">
+                    <a href="https://github.com/alegonzjur/PBX_Dashboards/tree/main/Diabetes" class="btn" target="_blank">Ver Proyecto en GitHub</a>
+                </div>
+                
+
+            </div>
+
+            <div class="project-card">
+                <h3>Análisis de tendencias de compras</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">PowerBI</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Excel</span>
+                </div>
+                <p>Análisis del comportamiento consumista y los patrones de compra de los clientes de varias partes del mundo.
+                    Este dashboard muestra información que puede servir para mejorar el servicio y generar descuentos basándose en la información obtenida.
+                </p>
+                <div class="project-media">
+                    <img src="assets/images/dashboard_shoptrends.gif" alt="GIF del dashboard de compras" loading="lazy">
+                    <br>
+                    <small>Vista previa del dashboard interactivo mostrando distribuciones y relaciones de los datos.</small>
+                </div>
+                <div class="button-container">
+                    <a href="https://github.com/alegonzjur/PBX_Dashboards/tree/main/ShoppingTrends" class="btn" target="_blank">Ver Proyecto en GitHub</a>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 class="section-title">🤖 Proyectos de Machine Learning</h2>
+            
+            <div class="project-card">
+                <h3>Predicción de Churn de Clientes</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Scikit-Learn</span>
+                    <span class="tag">Clasificación</span>
+                </div>
+                <p>Implementación de un modelo de clasificación para predecir qué clientes tienen mayor probabilidad de abandonar un servicio. Se evaluaron diferentes algoritmos y se optimizaron los hiperparámetros para mejorar la precisión del modelo.</p>
+                <div class="project-media">
+                    <h4>Demo del modelo en acción:</h4>
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_CHURN" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <small>Demostración del proceso de predicción y los resultados del modelo.</small>
+                </div>
+                <div class="button-container">
+                    <a href="https://github.com/alegonzjur/DataScienceProjects/tree/main/ChurnPrediction" class="btn" target="_blank">Ver Proyecto en GitHub</a>
+                </div>
+                
+            </div>
+
+            <div class="project-card">
+                <h3>Clasificación de ADN</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Seaborn</span>
+                    <span class="tag">Scikit-Learn</span>
+                    <span class="tag">Naive-Bayes</span>
+                    <span class="tag">RegresionLogistica</span>
+                    <span class="tag">SVC</span>
+                    <span class="tag">KNN</span>
+                    <span class="tag">TreeDecision</span>
+                    <span class="tag">RandomForest</span>
+                    <span class="tag">GradientBoosting</span>
+                </div>
+                <p>Desarrollo de varios modelos que clasifiquen si el ADN introducido es de un humano o no, y el riesgo de enfermedad que tiene. 
+                    Se utilizaron distintos algoritmos de Machine Learning para comprobar cuál encaja mejor con este conjunto de datos.
+                </p>
+                <div class="project-media">
+                    <img src="assets/images/dnaclassification.png" alt="ResultadosDelModelo" loading="lazy">
+                    <br>
+                    <small>Resultados finales de los modelos desarrollados.</small>
+                </div>
+                <div class="button-container">
+                    <a href="https://github.com/alegonzjur/DataScienceProjects/tree/main/DNAClassification" class="btn" target="_blank">Ver Proyecto en GitHub</a>
+                </div>
+                
+            </div>
+
+            <div class="project-card">
+                <h3>Sistema de recomendación de precio de coches</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Seaborn</span>
+                    <span class="tag">Matplotlib</span>
+                    <span class="tag">LightGBM</span>
+                    <span class="tag">Flask</span>
+                    <span class="tag">SQL</span>
+                </div>
+                <p>Creación de un sistema de recomendación de precio de coches basado en las características introducidas por el usuario. 
+                    Se utilizó un dataset con características de coches encontrar patrones relevantes en el precio final.</p>
+                <div class="project-media">
+                    <img src="assets/images/carreccomender.png" alt="ResultadosDelModelo" loading="lazy">
+                    <br>
+                </div>
+                <div class="button-container">
+                    <a href="https://github.com/alegonzjur/DataScienceProjects/tree/main/CarRecommender" class="btn" target="_blank">Ver Proyecto en GitHub</a>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 class="section-title">💬 Proyectos de NLP</h2>
+
+            <div class="project-card">
+                <h3>Detector de Fake News con BERT</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Seaborn</span>
+                    <span class="tag">Torch</span>
+                    <span class="tag">SpaCy</span>
+                    <span class="tag">Scikit-Learn</span>
+                    <span class="tag">Transformers</span>
+                    <span class="tag">BERT</span>
+                    <span class="tag">Flask</span>
+                </div>
+                <p>Implementación de un modelo BERT para identificar si una noticia es real o fake en función de su título.
+                    Se ha realizado un preprocesamiento y un análisis exploratorio previo, para mejorar los resultados lo máximo posible.
+                    El dataset dispone de aproximadamente 60000 registros sobre noticias. Se ha entrenado un modelo BERT con estas noticias (en inglés)
+                    y se ha integrado en una aplicación Flask para su mejor uso.
+                </p>
+                <div class="project-media">
+                    <img src="assets/images/fakenewsdetector.png" alt="FakeNewsDetector" loading="lazy">
+                    <small>Example of use.</small>
+                    <br>
+                </div>
+                <div class="button-container">
+                    <a href="https://github.com/alegonzjur/DataScienceProjects/tree/main/FakeNewsDetection" class="btn" target="_blank">Ver Proyecto en GitHub</a>
+                </div>
+                
+            </div>
+            <div class="project-card">
+                <h3>Generador de letras y melodías de canciones con GPT-2 y Audiocraft.</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Scikit-Learn</span>
+                    <span class="tag">HuggingFace</span>
+                    <span class="tag">GPT-2</span>
+                    <span class="tag">AudioCraft</span>
+                    <span class="tag">Flask</span>
+                </div>
+                <p>Desarrollo de un generador de letras de canciones basadas en un prompt inicial, un estilo, un nombre de canción y un artista (o grupo).
+                    La letra se podrá elegir al gusto del usuario, y cuando encuentre una apropiada, la aplicación generará una melodía acorde a esa letra.
+                    Se aplicaron técnicas de fine-tuning en modelos GPT-2 para que finalmente estuvieran a disposición 3 modelos según el género: Rock, Pop y Rap.
+                    Todos entrenados en inglés. La libreria AudioCraft (MusicGen) está preentrenada para crear melodías basándose en un prompt, 
+                    que en este caso, será la letra generada. Todo este proceso se ha integrado en una aplicación con Flask para facilitar la interacción del usuario.
+                </p>
+                <div class="project-media">
+                    <h4>Demostración del funcionamiento del proyecto:</h4>
+                    <iframe src="https://drive.google.com/file/d/1J8qRLZC7fU7dwnrTXFUZppRst8EoOVeb/preview" width="100%" height="350" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <small>Demostración del proceso de generación de letra y los resultados del modelo. (La generación de melodías requiere muchos recursos)</small>
+                </div>
+                <div class="audio_control">
+                    <p>Ejemplo de letra Pop</p>
+                    <audio controls>
+                        <source src="assets/audio/pop_v1.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+                <div class="audio_control">
+                    <p>Ejemplo de melodía Rock</p>
+                    <audio controls>
+                        <source src="assets/audio/rock_v1.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+                <div class="audio_control">
+                    <p>Ejemplo de melodía Rap</p>
+                    <audio controls>
+                        <source src="assets/audio/rap_v1.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+
+                <div class="button-container">
+                    <a href="https://github.com/alegonzjur/LAILA" class="btn" target="_blank">Ver Proyecto en GitHub</a>
+                </div>
+                
+            </div>
+        </section>
+
+        <footer class="footer">
+            
+        </footer>
+    </div>
+
+</body>
+</html>
