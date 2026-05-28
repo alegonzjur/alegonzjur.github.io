@@ -3,344 +3,623 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Alejandro Román</title>
+    <title>Portfolio — Alejandro Román</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --accent-data:    #185FA5;
+            --accent-data-bg: #E6F1FB;
+            --accent-data-tx: #0C447C;
+            --accent-int:     #0F6E56;
+            --accent-int-bg:  #E1F5EE;
+            --accent-int-tx:  #085041;
+            --accent-ml:      #3B6D11;
+            --accent-ml-bg:   #EAF3DE;
+            --accent-ml-tx:   #27500A;
+            --accent-nlp:     #BA7517;
+            --accent-nlp-bg:  #FAEEDA;
+            --accent-nlp-tx:  #633806;
+            --text-primary:   #1a1a1a;
+            --text-secondary: #5a5a5a;
+            --text-tertiary:  #9a9a9a;
+            --border:         rgba(0,0,0,0.09);
+            --border-hover:   rgba(0,0,0,0.16);
+            --bg-page:        #f7f6f3;
+            --bg-card:        #ffffff;
+            --bg-secondary:   #f0efe9;
+            --radius-md:      8px;
+            --radius-lg:      12px;
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-page);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: #333;
+            min-height: 100vh;
         }
-        img{
-            justify-content: center;
+
+        /* NAV */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247,246,243,0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 0.5px solid var(--border);
+            padding: 0 2rem;
         }
-        .container {
-            max-width: 800px;
+        .nav-inner {
+            max-width: 820px;
             margin: auto;
-            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 52px;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .header h1 {
-            color: #2c3e50;
-        }
-        .header p {
-            color: #7f8c8d;
-        }
-        .section-title {
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-top: 50px;
-            margin-bottom: 30px;
-            font-size: 2em;
-            color: #2c3e50;
-        }
-        .project-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .project-card h3 {
-            margin-top: 0;
-            color: #3498db;
-        }
-        .project-card .tags {
-            margin-bottom: 15px;
-        }
-        .project-card .tag {
-            background-color: #ecf0f1;
-            color: #34495e;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9em;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
+        .nav-name {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--text-primary);
             text-decoration: none;
-            margin-top: 10px;
-            
         }
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #bdc3c7;
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            list-style: none;
         }
-        
-        .project-media {
-            margin-top: 15px;
-            margin-bottom: 15px;
-            text-align: center; 
+        .nav-links a {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: 0.5px solid transparent;
+            transition: all 0.15s;
         }
-        .project-media img, .project-media iframe, .project-media audio {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px; 
+        .nav-links a:hover {
+            color: var(--text-primary);
+            border-color: var(--border);
+            background: var(--bg-secondary);
         }
-        .project-media iframe {
-             
+
+        /* LAYOUT */
+        .container {
+            max-width: 820px;
+            margin: auto;
+            padding: 0 2rem 5rem;
+        }
+
+        /* HERO */
+        .hero { padding: 5rem 0 4rem; }
+        .hero-eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 1rem;
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 44px);
+            font-weight: 600;
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 .muted { color: var(--text-secondary); font-weight: 300; }
+        .hero-desc {
+            font-size: 15.5px;
+            color: var(--text-secondary);
+            max-width: 540px;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+        .hero-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            border: 0.5px solid var(--border-hover);
+            color: var(--text-primary);
+            text-decoration: none;
+            background: var(--bg-card);
+            transition: all 0.15s;
+        }
+        .hero-link:hover { background: var(--bg-secondary); }
+
+        /* SECTION */
+        .section { margin-bottom: 3.5rem; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 1.5rem;
+        }
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .label-data { background: var(--accent-data-bg); color: var(--accent-data-tx); }
+        .label-int  { background: var(--accent-int-bg);  color: var(--accent-int-tx); }
+        .label-ml   { background: var(--accent-ml-bg);   color: var(--accent-ml-tx); }
+        .label-nlp  { background: var(--accent-nlp-bg);  color: var(--accent-nlp-tx); }
+        .section-line { flex: 1; height: 0.5px; background: var(--border); }
+
+        /* GRID */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* CARD */
+        .card {
+            background: var(--bg-card);
+            border: 0.5px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .card:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .card.featured { grid-column: 1 / -1; }
+
+        .card-stripe { height: 3px; width: 100%; flex-shrink: 0; }
+        .stripe-data { background: var(--accent-data); }
+        .stripe-int  { background: var(--accent-int); }
+        .stripe-ml   { background: var(--accent-ml); }
+        .stripe-nlp  { background: var(--accent-nlp); }
+
+        .card-media {
             width: 100%;
-            height: 300px; 
+            overflow: hidden;
+            background: var(--bg-secondary);
+            border-bottom: 0.5px solid var(--border);
         }
-        .button-container {
-            text-align: center;
+        .card-media img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
-        .audio_control{
-            text-align: center;
+        .card:hover .card-media img { transform: scale(1.015); }
+        .card-media.tall   img { height: 200px; }
+        .card-media.normal img { height: 155px; }
+
+        .card-body {
+            padding: 1rem 1.25rem 1.1rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        .card-desc {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+        .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
+        .tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .tag-python  { background: #FAEEDA; color: #633806; }
+        .tag-pbi     { background: #FAEEDA; color: #854F0B; }
+        .tag-dax     { background: #E6F1FB; color: #0C447C; }
+        .tag-ml      { background: var(--accent-ml-bg);  color: var(--accent-ml-tx); }
+        .tag-nlp     { background: #EEEDFE; color: #3C3489; }
+        .tag-default { background: var(--bg-secondary); color: var(--text-secondary); }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .card-link {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--accent-data);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.15s;
+        }
+        .card-link:hover { gap: 7px; }
+
+        .badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            padding: 3px 9px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .badge-data { background: var(--accent-data-bg); color: var(--accent-data-tx); }
+        .badge-int  { background: var(--accent-int-bg);  color: var(--accent-int-tx); }
+
+        /* audio */
+        .audio-block {
+            padding: 0.75rem 1.25rem;
+            border-top: 0.5px solid var(--border);
+        }
+        .audio-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-family: 'DM Mono', monospace;
+            margin-bottom: 5px;
+        }
+        audio { width: 100%; height: 32px; }
+
+        /* iframe */
+        .card-iframe {
+            width: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* FOOTER */
+        .site-footer {
+            border-top: 0.5px solid var(--border);
+            padding: 2rem 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer-text {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+        .footer-links { display: flex; gap: 8px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .container { padding: 0 1.25rem 4rem; }
+            .hero { padding: 3rem 0 2.5rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .card.featured { grid-column: 1; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a class="nav-name" href="#">AR</a>
+            <ul class="nav-links">
+                <li><a href="#datos">01 Análisis</a></li>
+                <li><a href="#integrales">02 Integrales</a></li>
+                <li><a href="#ml">03 ML</a></li>
+                <li><a href="#nlp">04 NLP</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
-        <header class="header">
-            <h1>Hola, soy Alejandro Román.</h1>
-            <p>Soy un desarrollador apasionado por el empleo de los datos para la obtención de perspectivas y conclusiones, además de su correcta explotación para la resolución de problemas.
-                 Aquí puedes encontrar mis proyectos organizados por áreas de especialización: <b>Machine Learning, Análisis de Datos y Procesamiento de Lenguaje Natural (NLP)</b></p>
-            <p>
-                <a href="https://linkedin.com/in/alegonjur" target="_blank">LinkedIn</a> |
-                <a href="https://github.com/alegonzjur" target="_blank">GitHub</a> |
-                <a href="mailto:alegonjur@gmail.com">Correo</a>
-            </p>
+
+        <header class="hero">
+            <p class="hero-eyebrow">Data Analyst / Scientist · 📍 Sevilla</p>
+            <h1>Alejandro Román.<br><span class="muted">Análisis · Predicción · Impacto.</span></h1>
+            <p class="hero-desc">Del dato en bruto al resultado accionable: análisis exploratorio, visualización, modelado predictivo y despliegue de aplicaciones. Trabajo con Python, Power BI y técnicas de ML y NLP para extraer valor de los datos y resolver problemas reales.</p>
+            <div class="hero-links">
+                <a class="hero-link" href="https://linkedin.com/in/alegonjur" target="_blank">↗ LinkedIn</a>
+                <a class="hero-link" href="https://github.com/alegonzjur" target="_blank">⌥ GitHub</a>
+                <a class="hero-link" href="mailto:alegonjur@gmail.com">✉ Correo</a>
+            </div>
         </header>
 
-        <section>
-            <h2 class="section-title">📊 Proyectos de Análisis de Datos</h2>
-            
-            <div class="project-card">
-                <h3>Análisis de ventas de videojuegos digitales</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Pandas</span>
-                    <span class="tag">PowerBI</span>
-                    <span class="tag">SQL</span>
-                </div>
-                <p>Análisis exploratorio de un dataset de ventas de la distribuidora de juegos digitales en ordenador conocida como Steam. 
-                    El objetivo de este análisis es buscar tendencias, mejores descuentos, estudiar los patrones de ofertas y observar el crecimiento de la plataforma.
-                    El proyecto incluye una introducción en el tema, limpieza de datos, visualización de información y la interpretación de los resultados.</p>
-                <div class="project-media">
-                    <img src="assets/images/dashboard_steam.gif" alt="GIF del dashboard de ventas de videojuegos" loading="lazy">
-                    <br>
-                    <small>Vista previa del dashboard interactivo mostrando filtros por género y plataforma.</small>
-                </div>
-                <div class="button-container">
-                    <a href="https://github.com/alegonzjur/PBX_Dashboards/tree/main/SteamSales" class="btn" target="_blank">Ver Proyecto en GitHub</a>
-                </div>
-                
+        <!-- 01 ANÁLISIS DE DATOS -->
+        <section class="section" id="datos">
+            <div class="section-header">
+                <span class="section-label label-data">01 — Análisis de datos</span>
+                <div class="section-line"></div>
             </div>
+            <div class="cards-grid">
 
-            <div class="project-card">
-                <h3>Dashboard de diagnostiación de diabetes</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Pandas</span>
-                    <span class="tag">PowerBI</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">ML</span>
-                </div>
-                <p>Dashboard interactivo que facilita la visualización de las relaciones entre distintos factores de la diabetes.
-                    Se muestra información sobre mujeres de 21 años o más de India, que fueron diagnosticadas con diabetes o no. 
-                El objetivo del dashboard es encontrar patrones dentro de la información para prevenir la diabetes.</p>
-                <div class="project-media">
-                    <img src="assets/images/dashboard_diabetes.gif" alt="GIF del dashboard de diabetes" loading="lazy">
-                    <br>
-                    <small>Vista previa del dashboard interactivo mostrando distribuciones y relaciones de los datos.</small>
-                </div>
-                <div class="button-container">
-                    <a href="https://github.com/alegonzjur/PBX_Dashboards/tree/main/Diabetes" class="btn" target="_blank">Ver Proyecto en GitHub</a>
-                </div>
-                
-
-            </div>
-
-            <div class="project-card">
-                <h3>Análisis de tendencias de compras</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Pandas</span>
-                    <span class="tag">PowerBI</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">Excel</span>
-                </div>
-                <p>Análisis del comportamiento consumista y los patrones de compra de los clientes de varias partes del mundo.
-                    Este dashboard muestra información que puede servir para mejorar el servicio y generar descuentos basándose en la información obtenida.
-                </p>
-                <div class="project-media">
-                    <img src="assets/images/dashboard_shoptrends.gif" alt="GIF del dashboard de compras" loading="lazy">
-                    <br>
-                    <small>Vista previa del dashboard interactivo mostrando distribuciones y relaciones de los datos.</small>
-                </div>
-                <div class="button-container">
-                    <a href="https://github.com/alegonzjur/PBX_Dashboards/tree/main/ShoppingTrends" class="btn" target="_blank">Ver Proyecto en GitHub</a>
-                </div>
-            </div>
-        </section>
-        <section>
-            <h2 class="section-title">🤖 Proyectos de Machine Learning</h2>
-            
-            <div class="project-card">
-                <h3>Predicción de Churn de Clientes</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Scikit-Learn</span>
-                    <span class="tag">Clasificación</span>
-                </div>
-                <p>Implementación de un modelo de clasificación para predecir qué clientes tienen mayor probabilidad de abandonar un servicio. Se evaluaron diferentes algoritmos y se optimizaron los hiperparámetros para mejorar la precisión del modelo.</p>
-                <div class="project-media">
-                    <h4>Demo del modelo en acción:</h4>
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_CHURN" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <small>Demostración del proceso de predicción y los resultados del modelo.</small>
-                </div>
-                <div class="button-container">
-                    <a href="https://github.com/alegonzjur/DataScienceProjects/tree/main/ChurnPrediction" class="btn" target="_blank">Ver Proyecto en GitHub</a>
-                </div>
-                
-            </div>
-
-            <div class="project-card">
-                <h3>Clasificación de ADN</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Pandas</span>
-                    <span class="tag">Seaborn</span>
-                    <span class="tag">Scikit-Learn</span>
-                    <span class="tag">Naive-Bayes</span>
-                    <span class="tag">RegresionLogistica</span>
-                    <span class="tag">SVC</span>
-                    <span class="tag">KNN</span>
-                    <span class="tag">TreeDecision</span>
-                    <span class="tag">RandomForest</span>
-                    <span class="tag">GradientBoosting</span>
-                </div>
-                <p>Desarrollo de varios modelos que clasifiquen si el ADN introducido es de un humano o no, y el riesgo de enfermedad que tiene. 
-                    Se utilizaron distintos algoritmos de Machine Learning para comprobar cuál encaja mejor con este conjunto de datos.
-                </p>
-                <div class="project-media">
-                    <img src="assets/images/dnaclassification.png" alt="ResultadosDelModelo" loading="lazy">
-                    <br>
-                    <small>Resultados finales de los modelos desarrollados.</small>
-                </div>
-                <div class="button-container">
-                    <a href="https://github.com/alegonzjur/DataScienceProjects/tree/main/DNAClassification" class="btn" target="_blank">Ver Proyecto en GitHub</a>
-                </div>
-                
-            </div>
-
-            <div class="project-card">
-                <h3>Sistema de recomendación de precio de coches</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Pandas</span>
-                    <span class="tag">Seaborn</span>
-                    <span class="tag">Matplotlib</span>
-                    <span class="tag">LightGBM</span>
-                    <span class="tag">Flask</span>
-                    <span class="tag">SQL</span>
-                </div>
-                <p>Creación de un sistema de recomendación de precio de coches basado en las características introducidas por el usuario. 
-                    Se utilizó un dataset con características de coches encontrar patrones relevantes en el precio final.</p>
-                <div class="project-media">
-                    <img src="assets/images/carreccomender.png" alt="ResultadosDelModelo" loading="lazy">
-                    <br>
-                </div>
-                <div class="button-container">
-                    <a href="https://github.com/alegonzjur/DataScienceProjects/tree/main/CarRecommender" class="btn" target="_blank">Ver Proyecto en GitHub</a>
-                </div>
-            </div>
-        </section>
-        <section>
-            <h2 class="section-title">💬 Proyectos de NLP</h2>
-
-            <div class="project-card">
-                <h3>Detector de Fake News con BERT</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Pandas</span>
-                    <span class="tag">Seaborn</span>
-                    <span class="tag">Torch</span>
-                    <span class="tag">SpaCy</span>
-                    <span class="tag">Scikit-Learn</span>
-                    <span class="tag">Transformers</span>
-                    <span class="tag">BERT</span>
-                    <span class="tag">Flask</span>
-                </div>
-                <p>Implementación de un modelo BERT para identificar si una noticia es real o fake en función de su título.
-                    Se ha realizado un preprocesamiento y un análisis exploratorio previo, para mejorar los resultados lo máximo posible.
-                    El dataset dispone de aproximadamente 60000 registros sobre noticias. Se ha entrenado un modelo BERT con estas noticias (en inglés)
-                    y se ha integrado en una aplicación Flask para su mejor uso.
-                </p>
-                <div class="project-media">
-                    <img src="assets/images/fakenewsdetector.png" alt="FakeNewsDetector" loading="lazy">
-                    <small>Example of use.</small>
-                    <br>
-                </div>
-                <div class="button-container">
-                    <a href="https://github.com/alegonzjur/DataScienceProjects/tree/main/FakeNewsDetection" class="btn" target="_blank">Ver Proyecto en GitHub</a>
-                </div>
-                
-            </div>
-            <div class="project-card">
-                <h3>Generador de letras y melodías de canciones con GPT-2 y Audiocraft.</h3>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Pandas</span>
-                    <span class="tag">Scikit-Learn</span>
-                    <span class="tag">HuggingFace</span>
-                    <span class="tag">GPT-2</span>
-                    <span class="tag">AudioCraft</span>
-                    <span class="tag">Flask</span>
-                </div>
-                <p>Desarrollo de un generador de letras de canciones basadas en un prompt inicial, un estilo, un nombre de canción y un artista (o grupo).
-                    La letra se podrá elegir al gusto del usuario, y cuando encuentre una apropiada, la aplicación generará una melodía acorde a esa letra.
-                    Se aplicaron técnicas de fine-tuning en modelos GPT-2 para que finalmente estuvieran a disposición 3 modelos según el género: Rock, Pop y Rap.
-                    Todos entrenados en inglés. La libreria AudioCraft (MusicGen) está preentrenada para crear melodías basándose en un prompt, 
-                    que en este caso, será la letra generada. Todo este proceso se ha integrado en una aplicación con Flask para facilitar la interacción del usuario.
-                </p>
-                <div class="project-media">
-                    <h4>Demostración del funcionamiento del proyecto:</h4>
-                    <iframe src="https://drive.google.com/file/d/1J8qRLZC7fU7dwnrTXFUZppRst8EoOVeb/preview" width="100%" height="350" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    <small>Demostración del proceso de generación de letra y los resultados del modelo. (La generación de melodías requiere muchos recursos)</small>
-                </div>
-                <div class="audio_control">
-                    <p>Ejemplo de letra Pop</p>
-                    <audio controls>
-                        <source src="assets/audio/pop_v1.mp3" type="audio/mpeg">
-                        Tu navegador no soporta el elemento de audio.
-                    </audio>
-                </div>
-                <div class="audio_control">
-                    <p>Ejemplo de melodía Rock</p>
-                    <audio controls>
-                        <source src="assets/audio/rock_v1.mp3" type="audio/mpeg">
-                        Tu navegador no soporta el elemento de audio.
-                    </audio>
-                </div>
-                <div class="audio_control">
-                    <p>Ejemplo de melodía Rap</p>
-                    <audio controls>
-                        <source src="assets/audio/rap_v1.mp3" type="audio/mpeg">
-                        Tu navegador no soporta el elemento de audio.
-                    </audio>
+                <div class="card featured">
+                    <div class="card-stripe stripe-data"></div>
+                    <div class="card-media tall">
+                        <img src="assets/images/dashboard_diabetes.gif" alt="Dashboard de Diabetes" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Diabetes Analytics Dashboard</div>
+                        <div class="card-desc">Análisis exploratorio de factores clínicos de riesgo en una población de 768 mujeres con predisposición a diabetes tipo 2. Tres páginas: Executive Summary, Risk Factor Analysis y Demographic Analysis. El 38,67% de las pacientes presenta diagnóstico positivo.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-dax">DAX</span>
+                            <span class="tag tag-default">Salud</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/DiabetesAnalytics" target="_blank">Ver en GitHub →</a>
+                            <span class="badge badge-data">Repo propio</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="button-container">
-                    <a href="https://github.com/alegonzjur/LAILA" class="btn" target="_blank">Ver Proyecto en GitHub</a>
+                <div class="card">
+                    <div class="card-stripe stripe-data"></div>
+                    <div class="card-media normal">
+                        <img src="assets/images/dashboard_steam.gif" alt="Dashboard Steam Sales" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Steam Sales Dashboard</div>
+                        <div class="card-desc">Análisis de precios, descuentos y valoraciones del catálogo de Steam. Estrategia de pricing por categoría, evolución temporal 2006–2025 y ranking de ahorro por título. Ahorro acumulado total: $10.482,60.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-dax">DAX</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/SteamSalesAnalysis" target="_blank">Ver en GitHub →</a>
+                            <span class="badge badge-data">Repo propio</span>
+                        </div>
+                    </div>
                 </div>
-                
+
+                <div class="card">
+                    <div class="card-stripe stripe-data"></div>
+                    <div class="card-media normal">
+                        <!-- ACTUALIZAR: añadir dashboard_mobilegame.gif a assets/images/ -->
+                        <img src="assets/images/dashboard_mobilegame.gif" alt="Dashboard Mobile Game In-App Purchases" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Mobile Game In-App Purchases</div>
+                        <div class="card-desc">Segmentación whales · dolphins · minnows en el mercado de videojuegos móviles. Los whales representan el 2,6% de usuarios y generan el 60% de los ingresos totales.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-dax">DAX</span>
+                            <span class="tag tag-default">Bing Maps</span>
+                        </div>
+                        <div class="card-footer">
+                            <!-- ACTUALIZAR URL cuando esté disponible -->
+                            <a class="card-link" href="https://github.com/alegonzjur/MobileGameInAppPurchases" target="_blank">Ver en GitHub →</a>
+                            <span class="badge badge-data">Repo propio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card featured">
+                    <div class="card-stripe stripe-data"></div>
+                    <div class="card-media normal">
+                        <img src="assets/images/dashboard_shoptrends.gif" alt="Dashboard Shopping Trends" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Análisis de tendencias de compras</div>
+                        <div class="card-desc">Análisis del comportamiento consumista y los patrones de compra de clientes de distintas partes del mundo. Información para mejorar el servicio y generar descuentos basándose en los datos obtenidos.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-default">SQL</span>
+                            <span class="tag tag-default">Excel</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/PBX_Dashboards/tree/main/ShoppingTrends" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <footer class="footer">
-            
+        <!-- 02 PROYECTOS INTEGRALES -->
+        <section class="section" id="integrales">
+            <div class="section-header">
+                <span class="section-label label-int">02 — Proyectos integrales</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card featured">
+                    <div class="card-stripe stripe-int"></div>
+                    <div class="card-media tall">
+                        <!-- ACTUALIZAR: añadir gaming_academic.png/gif a assets/images/ -->
+                        <img src="assets/images/gaming_academic.png" alt="Gaming Academic Performance" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Gaming &amp; Academic Performance</div>
+                        <div class="card-desc">Pipeline completo sobre datos reales de alumnos: análisis exploratorio del impacto del gaming en el rendimiento académico, modelado predictivo con XGBoost y Random Forest, y segmentación de perfiles de jugador mediante clustering. Incluye matrices de confusión, curvas ROC y visualización de resultados.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-ml">XGBoost</span>
+                            <span class="tag tag-ml">Random Forest</span>
+                            <span class="tag tag-ml">Clustering</span>
+                            <span class="tag tag-default">Scikit-Learn</span>
+                            <span class="tag tag-default">Pandas</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/GamingAcademicPerformance" target="_blank">Ver en GitHub →</a>
+                            <span class="badge badge-int">EDA + ML + Visualización</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 03 MACHINE LEARNING -->
+        <section class="section" id="ml">
+            <div class="section-header">
+                <span class="section-label label-ml">03 — Machine learning</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card">
+                    <div class="card-stripe stripe-ml"></div>
+                    <div class="card-body">
+                        <div class="card-title">Predicción de Churn de clientes</div>
+                        <div class="card-desc">Modelo de clasificación para predecir qué clientes tienen mayor probabilidad de abandonar un servicio. Evaluación de distintos algoritmos y optimización de hiperparámetros.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-ml">Scikit-Learn</span>
+                            <span class="tag tag-ml">Clasificación</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/DataScienceProjects/tree/main/ChurnPrediction" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-stripe stripe-ml"></div>
+                    <div class="card-media normal">
+                        <img src="assets/images/dnaclassification.png" alt="Clasificación de ADN" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Clasificación de ADN</div>
+                        <div class="card-desc">Comparativa de seis algoritmos (Naive Bayes, Regresión Logística, SVC, KNN, Random Forest, Gradient Boosting) para clasificar secuencias de ADN y evaluar riesgo de enfermedad.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-ml">Scikit-Learn</span>
+                            <span class="tag tag-ml">Random Forest</span>
+                            <span class="tag tag-ml">Gradient Boosting</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/DataScienceProjects/tree/main/DNAClassification" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-stripe stripe-ml"></div>
+                    <div class="card-media normal">
+                        <img src="assets/images/carreccomender.png" alt="Recomendador de precio de coches" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Recomendador de precio de coches</div>
+                        <div class="card-desc">Sistema de recomendación de precio basado en las características del vehículo introducidas por el usuario. Modelo LightGBM integrado en aplicación Flask.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-default">LightGBM</span>
+                            <span class="tag tag-default">Flask</span>
+                            <span class="tag tag-default">SQL</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/DataScienceProjects/tree/main/CarRecommender" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 04 NLP -->
+        <section class="section" id="nlp">
+            <div class="section-header">
+                <span class="section-label label-nlp">04 — NLP</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card">
+                    <div class="card-stripe stripe-nlp"></div>
+                    <div class="card-media normal">
+                        <img src="assets/images/fakenewsdetector.png" alt="Detector de Fake News" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Detector de Fake News con BERT</div>
+                        <div class="card-desc">Modelo BERT fine-tuneado sobre ~60.000 noticias para clasificar titulares como reales o falsos. Preprocesamiento, EDA y despliegue en aplicación Flask.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-nlp">BERT</span>
+                            <span class="tag tag-nlp">Transformers</span>
+                            <span class="tag tag-default">Flask</span>
+                            <span class="tag tag-default">SpaCy</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/DataScienceProjects/tree/main/FakeNewsDetection" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-stripe stripe-nlp"></div>
+                    <div class="card-media" style="background:var(--bg-secondary); border-bottom: 0.5px solid var(--border);">
+                        <iframe class="card-iframe" src="https://drive.google.com/file/d/1J8qRLZC7fU7dwnrTXFUZppRst8EoOVeb/preview" height="180" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Generador de letras y melodías — LAILA</div>
+                        <div class="card-desc">GPT-2 fine-tuneado por género (Rock, Pop, Rap) para generar letras a partir de un prompt. AudioCraft (MusicGen) genera la melodía a partir de la letra. Interfaz completa en Flask.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-nlp">GPT-2</span>
+                            <span class="tag tag-nlp">AudioCraft</span>
+                            <span class="tag tag-nlp">HuggingFace</span>
+                            <span class="tag tag-default">Flask</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/LAILA" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                    <div class="audio-block">
+                        <p class="audio-label">Pop</p>
+                        <audio controls><source src="assets/audio/pop_v1.mp3" type="audio/mpeg">Tu navegador no soporta audio.</audio>
+                    </div>
+                    <div class="audio-block">
+                        <p class="audio-label">Rock</p>
+                        <audio controls><source src="assets/audio/rock_v1.mp3" type="audio/mpeg">Tu navegador no soporta audio.</audio>
+                    </div>
+                    <div class="audio-block">
+                        <p class="audio-label">Rap</p>
+                        <audio controls><source src="assets/audio/rap_v1.mp3" type="audio/mpeg">Tu navegador no soporta audio.</audio>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <span class="footer-text">© 2025 Alejandro Román · alegonzjur.github.io</span>
+            <div class="footer-links">
+                <a class="hero-link" href="https://linkedin.com/in/alegonjur" target="_blank" style="font-size:12px;padding:6px 12px;">LinkedIn</a>
+                <a class="hero-link" href="https://github.com/alegonzjur" target="_blank" style="font-size:12px;padding:6px 12px;">GitHub</a>
+            </div>
         </footer>
+
     </div>
 
 </body>
