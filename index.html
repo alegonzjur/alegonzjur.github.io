@@ -11,18 +11,21 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --accent-data:    #185FA5;
-            --accent-data-bg: #E6F1FB;
-            --accent-data-tx: #0C447C;
-            --accent-int:     #0F6E56;
-            --accent-int-bg:  #E1F5EE;
-            --accent-int-tx:  #085041;
+            --accent-mlops:   #534AB7;
+            --accent-mlops-bg:#EEEDFE;
+            --accent-mlops-tx:#3C3489;
             --accent-ml:      #3B6D11;
             --accent-ml-bg:   #EAF3DE;
             --accent-ml-tx:   #27500A;
             --accent-nlp:     #BA7517;
             --accent-nlp-bg:  #FAEEDA;
             --accent-nlp-tx:  #633806;
+            --accent-int:     #0F6E56;
+            --accent-int-bg:  #E1F5EE;
+            --accent-int-tx:  #085041;
+            --accent-data:    #185FA5;
+            --accent-data-bg: #E6F1FB;
+            --accent-data-tx: #0C447C;
             --text-primary:   #1a1a1a;
             --text-secondary: #5a5a5a;
             --text-tertiary:  #9a9a9a;
@@ -45,7 +48,6 @@
             min-height: 100vh;
         }
 
-        /* NAV */
         .site-nav {
             position: sticky;
             top: 0;
@@ -72,11 +74,7 @@
             color: var(--text-primary);
             text-decoration: none;
         }
-        .nav-links {
-            display: flex;
-            gap: 4px;
-            list-style: none;
-        }
+        .nav-links { display: flex; gap: 4px; list-style: none; }
         .nav-links a {
             font-family: 'DM Mono', monospace;
             font-size: 11px;
@@ -95,14 +93,8 @@
             background: var(--bg-secondary);
         }
 
-        /* LAYOUT */
-        .container {
-            max-width: 820px;
-            margin: auto;
-            padding: 0 2rem 5rem;
-        }
+        .container { max-width: 820px; margin: auto; padding: 0 2rem 5rem; }
 
-        /* HERO */
         .hero { padding: 5rem 0 4rem; }
         .hero-eyebrow {
             font-family: 'DM Mono', monospace;
@@ -144,14 +136,8 @@
         }
         .hero-link:hover { background: var(--bg-secondary); }
 
-        /* SECTION */
         .section { margin-bottom: 3.5rem; }
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 1.5rem;
-        }
+        .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.5rem; }
         .section-label {
             font-family: 'DM Mono', monospace;
             font-size: 11px;
@@ -162,20 +148,15 @@
             border-radius: 20px;
             white-space: nowrap;
         }
-        .label-data { background: var(--accent-data-bg); color: var(--accent-data-tx); }
-        .label-int  { background: var(--accent-int-bg);  color: var(--accent-int-tx); }
-        .label-ml   { background: var(--accent-ml-bg);   color: var(--accent-ml-tx); }
-        .label-nlp  { background: var(--accent-nlp-bg);  color: var(--accent-nlp-tx); }
+        .label-mlops { background: var(--accent-mlops-bg); color: var(--accent-mlops-tx); }
+        .label-ml    { background: var(--accent-ml-bg);    color: var(--accent-ml-tx); }
+        .label-nlp   { background: var(--accent-nlp-bg);   color: var(--accent-nlp-tx); }
+        .label-int   { background: var(--accent-int-bg);   color: var(--accent-int-tx); }
+        .label-data  { background: var(--accent-data-bg);  color: var(--accent-data-tx); }
         .section-line { flex: 1; height: 0.5px; background: var(--border); }
 
-        /* GRID */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
+        .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-        /* CARD */
         .card {
             background: var(--bg-card);
             border: 0.5px solid var(--border);
@@ -185,17 +166,15 @@
             flex-direction: column;
             transition: border-color 0.15s, box-shadow 0.15s;
         }
-        .card:hover {
-            border-color: var(--border-hover);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-        }
+        .card:hover { border-color: var(--border-hover); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
         .card.featured { grid-column: 1 / -1; }
 
         .card-stripe { height: 3px; width: 100%; flex-shrink: 0; }
-        .stripe-data { background: var(--accent-data); }
-        .stripe-int  { background: var(--accent-int); }
-        .stripe-ml   { background: var(--accent-ml); }
-        .stripe-nlp  { background: var(--accent-nlp); }
+        .stripe-mlops { background: var(--accent-mlops); }
+        .stripe-ml    { background: var(--accent-ml); }
+        .stripe-nlp   { background: var(--accent-nlp); }
+        .stripe-int   { background: var(--accent-int); }
+        .stripe-data  { background: var(--accent-data); }
 
         .card-media {
             width: 100%;
@@ -213,47 +192,20 @@
         .card-media.tall   img { height: 200px; }
         .card-media.normal img { height: 155px; }
 
-        .card-body {
-            padding: 1rem 1.25rem 1.1rem;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-        .card-title {
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 1.35;
-            margin-bottom: 6px;
-            color: var(--text-primary);
-        }
-        .card-desc {
-            font-size: 12.5px;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            margin-bottom: 12px;
-            flex: 1;
-        }
+        .card-body { padding: 1rem 1.25rem 1.1rem; display: flex; flex-direction: column; flex: 1; }
+        .card-title { font-size: 14px; font-weight: 600; line-height: 1.35; margin-bottom: 6px; color: var(--text-primary); }
+        .card-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px; flex: 1; }
         .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
-        .tag {
-            font-family: 'DM Mono', monospace;
-            font-size: 10px;
-            font-weight: 500;
-            padding: 3px 8px;
-            border-radius: 4px;
-        }
+        .tag { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 4px; }
         .tag-python  { background: #FAEEDA; color: #633806; }
         .tag-pbi     { background: #FAEEDA; color: #854F0B; }
         .tag-dax     { background: #E6F1FB; color: #0C447C; }
-        .tag-ml      { background: var(--accent-ml-bg);  color: var(--accent-ml-tx); }
+        .tag-mlops   { background: var(--accent-mlops-bg); color: var(--accent-mlops-tx); }
+        .tag-ml      { background: var(--accent-ml-bg);    color: var(--accent-ml-tx); }
         .tag-nlp     { background: #EEEDFE; color: #3C3489; }
         .tag-default { background: var(--bg-secondary); color: var(--text-secondary); }
 
-        .card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-        }
+        .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
         .card-link {
             font-size: 12.5px;
             font-weight: 500;
@@ -266,37 +218,15 @@
         }
         .card-link:hover { gap: 7px; }
 
-        .badge {
-            font-family: 'DM Mono', monospace;
-            font-size: 10px;
-            padding: 3px 9px;
-            border-radius: 20px;
-            white-space: nowrap;
-        }
-        .badge-data { background: var(--accent-data-bg); color: var(--accent-data-tx); }
-        .badge-int  { background: var(--accent-int-bg);  color: var(--accent-int-tx); }
+        .badge { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
+        .badge-mlops { background: var(--accent-mlops-bg); color: var(--accent-mlops-tx); }
+        .badge-int   { background: var(--accent-int-bg);   color: var(--accent-int-tx); }
 
-        /* audio */
-        .audio-block {
-            padding: 0.75rem 1.25rem;
-            border-top: 0.5px solid var(--border);
-        }
-        .audio-label {
-            font-size: 11px;
-            color: var(--text-tertiary);
-            font-family: 'DM Mono', monospace;
-            margin-bottom: 5px;
-        }
+        .audio-block { padding: 0.75rem 1.25rem; border-top: 0.5px solid var(--border); }
+        .audio-label { font-size: 11px; color: var(--text-tertiary); font-family: 'DM Mono', monospace; margin-bottom: 5px; }
         audio { width: 100%; height: 32px; }
+        .card-iframe { width: 100%; border: none; display: block; }
 
-        /* iframe */
-        .card-iframe {
-            width: 100%;
-            border: none;
-            display: block;
-        }
-
-        /* FOOTER */
         .site-footer {
             border-top: 0.5px solid var(--border);
             padding: 2rem 0 0;
@@ -306,14 +236,9 @@
             flex-wrap: wrap;
             gap: 12px;
         }
-        .footer-text {
-            font-family: 'DM Mono', monospace;
-            font-size: 11px;
-            color: var(--text-tertiary);
-        }
+        .footer-text { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-tertiary); }
         .footer-links { display: flex; gap: 8px; }
 
-        /* RESPONSIVE */
         @media (max-width: 600px) {
             .container { padding: 0 1.25rem 4rem; }
             .hero { padding: 3rem 0 2.5rem; }
@@ -329,10 +254,11 @@
         <div class="nav-inner">
             <a class="nav-name" href="#">AR</a>
             <ul class="nav-links">
-                <li><a href="#datos">01 Análisis</a></li>
-                <li><a href="#integrales">02 Integrales</a></li>
-                <li><a href="#ml">03 ML</a></li>
-                <li><a href="#nlp">04 NLP</a></li>
+                <li><a href="#mlops">01 MLOps</a></li>
+                <li><a href="#ml">02 ML</a></li>
+                <li><a href="#nlp">03 NLP</a></li>
+                <li><a href="#integrales">04 Integrales</a></li>
+                <li><a href="#datos">05 Análisis</a></li>
             </ul>
         </div>
     </nav>
@@ -340,7 +266,7 @@
     <div class="container">
 
         <header class="hero">
-            <p class="hero-eyebrow">Data Analyst / Scientist · 📍 Sevilla</p>
+            <p class="hero-eyebrow">Data Scientist & Developer · Sevilla, España</p>
             <h1>Alejandro Román.<br><span class="muted">Análisis · Predicción · Impacto.</span></h1>
             <p class="hero-desc">Del dato en bruto al resultado accionable: análisis exploratorio, visualización, modelado predictivo y despliegue de aplicaciones. Trabajo con Python, Power BI y técnicas de ML y NLP para extraer valor de los datos y resolver problemas reales.</p>
             <div class="hero-links">
@@ -350,138 +276,44 @@
             </div>
         </header>
 
-        <!-- 01 ANÁLISIS DE DATOS -->
-        <section class="section" id="datos">
+        <!-- 01 MLOPS -->
+        <section class="section" id="mlops">
             <div class="section-header">
-                <span class="section-label label-data">01 — Análisis de datos</span>
+                <span class="section-label label-mlops">01 — MLOps</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
-
                 <div class="card featured">
-                    <div class="card-stripe stripe-data"></div>
+                    <div class="card-stripe stripe-mlops"></div>
                     <div class="card-media tall">
-                        <img src="assets/images/dashboard_diabetes.gif" alt="Dashboard de Diabetes" loading="lazy">
+                        <img src="assets/images/gac_mlops_api.png" alt="GAC MLOps — FastAPI endpoints" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <div class="card-title">Diabetes Analytics Dashboard</div>
-                        <div class="card-desc">Análisis exploratorio de factores clínicos de riesgo en una población de 768 mujeres con predisposición a diabetes tipo 2. Tres páginas: Executive Summary, Risk Factor Analysis y Demographic Analysis. El 38,67% de las pacientes presenta diagnóstico positivo.</div>
+                        <div class="card-title">GAC_MLOps — Ciclo de vida ML completo</div>
+                        <div class="card-desc">Pipeline MLOps reproducible sobre datos reales de 8.000 estudiantes: tracking de experimentos con MLflow, versionado de datos con DVC, 16 tests unitarios con pytest y API REST desplegada en Docker. XGBoost con ROC-AUC 0.979 y Random Forest con R² 0.92. Dos endpoints de predicción: riesgo académico y nota esperada.</div>
                         <div class="card-tags">
-                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-mlops">MLflow</span>
+                            <span class="tag tag-mlops">DVC</span>
+                            <span class="tag tag-mlops">Docker</span>
+                            <span class="tag tag-mlops">FastAPI</span>
+                            <span class="tag tag-mlops">pytest</span>
                             <span class="tag tag-python">Python</span>
-                            <span class="tag tag-dax">DAX</span>
-                            <span class="tag tag-default">Salud</span>
-                        </div>
-                        <div class="card-footer">
-                            <a class="card-link" href="https://github.com/alegonzjur/DiabetesAnalytics" target="_blank">Ver en GitHub →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-stripe stripe-data"></div>
-                    <div class="card-media normal">
-                        <img src="assets/images/dashboard_steam.gif" alt="Dashboard Steam Sales" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-title">Steam Sales Dashboard</div>
-                        <div class="card-desc">Análisis de precios, descuentos y valoraciones del catálogo de Steam. Estrategia de pricing por categoría, evolución temporal 2006–2025 y ranking de ahorro por título. Ahorro acumulado total: $10.482,60.</div>
-                        <div class="card-tags">
-                            <span class="tag tag-pbi">Power BI</span>
-                            <span class="tag tag-python">Python</span>
-                            <span class="tag tag-dax">DAX</span>
-                        </div>
-                        <div class="card-footer">
-                            <a class="card-link" href="https://github.com/alegonzjur/SteamSalesAnalysis" target="_blank">Ver en GitHub →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-stripe stripe-data"></div>
-                    <div class="card-media normal">
-                        
-                        <img src="assets/images/mobilegame.png" alt="Dashboard Mobile Game In-App Purchases" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-title">Mobile Game In-App Purchases</div>
-                        <div class="card-desc">Segmentación whales · dolphins · minnows en el mercado de videojuegos móviles. Los whales representan el 2,6% de usuarios y generan el 60% de los ingresos totales.</div>
-                        <div class="card-tags">
-                            <span class="tag tag-pbi">Power BI</span>
-                            <span class="tag tag-dax">DAX</span>
-                            <span class="tag tag-default">Bing Maps</span>
-                        </div>
-                        <div class="card-footer">
-                           
-                            <a class="card-link" href="https://github.com/alegonzjur/MobileGameInAppPurchases" target="_blank">Ver en GitHub →</a>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card featured">
-                    <div class="card-stripe stripe-data"></div>
-                    <div class="card-media normal">
-                        <img src="assets/images/dashboard_shoptrends.gif" alt="Dashboard Shopping Trends" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-title">Análisis de tendencias de compras</div>
-                        <div class="card-desc">Análisis del comportamiento consumista y los patrones de compra de clientes de distintas partes del mundo. Información para mejorar el servicio y generar descuentos basándose en los datos obtenidos.</div>
-                        <div class="card-tags">
-                            <span class="tag tag-python">Python</span>
-                            <span class="tag tag-pbi">Power BI</span>
-                            <span class="tag tag-default">SQL</span>
-                            <span class="tag tag-default">Excel</span>
-                        </div>
-                        <div class="card-footer">
-                            <a class="card-link" href="https://github.com/alegonzjur/PBX_Dashboards/tree/main/ShoppingTrends" target="_blank">Ver en GitHub →</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 02 PROYECTOS INTEGRALES -->
-        <section class="section" id="integrales">
-            <div class="section-header">
-                <span class="section-label label-int">02 — Proyectos integrales</span>
-                <div class="section-line"></div>
-            </div>
-            <div class="cards-grid">
-
-                <div class="card featured">
-                    <div class="card-stripe stripe-int"></div>
-                    <div class="card-media tall">
-                        
-                        <img src="assets/images/gap.png" alt="Gaming Academic Performance" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-title">Gaming &amp; Academic Performance</div>
-                        <div class="card-desc">Pipeline completo sobre datos reales de alumnos: análisis exploratorio del impacto del gaming en el rendimiento académico, modelado predictivo con XGBoost y Random Forest, y segmentación de perfiles de jugador mediante clustering. Incluye matrices de confusión, curvas ROC y visualización de resultados.</div>
-                        <div class="card-tags">
-                            <span class="tag tag-python">Python</span>
-                            <span class="tag tag-pbi">Power BI</span>
                             <span class="tag tag-ml">XGBoost</span>
                             <span class="tag tag-ml">Random Forest</span>
-                            <span class="tag tag-ml">Clustering</span>
-                            <span class="tag tag-default">Scikit-Learn</span>
-                            <span class="tag tag-default">Pandas</span>
                         </div>
                         <div class="card-footer">
-                            <a class="card-link" href="https://github.com/alegonzjur/GamingAcademicPerformance" target="_blank">Ver en GitHub →</a>
-                            <span class="badge badge-int">EDA + ML + Visualización</span>
+                            <a class="card-link" href="https://github.com/alegonzjur/GAC_MLOps" target="_blank">Ver en GitHub →</a>
+                            <span class="badge badge-mlops">MLflow · DVC · Docker</span>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- 03 MACHINE LEARNING -->
+        <!-- 02 MACHINE LEARNING -->
         <section class="section" id="ml">
             <div class="section-header">
-                <span class="section-label label-ml">03 — Machine learning</span>
+                <span class="section-label label-ml">02 — Machine learning</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
@@ -545,10 +377,10 @@
             </div>
         </section>
 
-        <!-- 04 NLP -->
+        <!-- 03 NLP -->
         <section class="section" id="nlp">
             <div class="section-header">
-                <span class="section-label label-nlp">04 — NLP</span>
+                <span class="section-label label-nlp">03 — NLP</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
@@ -604,6 +436,130 @@
                     <div class="audio-block">
                         <p class="audio-label">Rap</p>
                         <audio controls><source src="assets/audio/rap_v1.mp3" type="audio/mpeg">Tu navegador no soporta audio.</audio>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 04 PROYECTOS INTEGRALES -->
+        <section class="section" id="integrales">
+            <div class="section-header">
+                <span class="section-label label-int">04 — Proyectos integrales</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="cards-grid">
+                <div class="card featured">
+                    <div class="card-stripe stripe-int"></div>
+                    <div class="card-media tall">
+                        <img src="assets/images/gaming_academic.png" alt="Gaming Academic Performance" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Gaming &amp; Academic Performance</div>
+                        <div class="card-desc">Pipeline completo sobre datos reales de alumnos: análisis exploratorio del impacto del gaming en el rendimiento académico, modelado predictivo con XGBoost y Random Forest, y segmentación de perfiles de jugador mediante clustering. Incluye matrices de confusión, curvas ROC y visualización de resultados.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-ml">XGBoost</span>
+                            <span class="tag tag-ml">Random Forest</span>
+                            <span class="tag tag-ml">Clustering</span>
+                            <span class="tag tag-default">Scikit-Learn</span>
+                            <span class="tag tag-default">Pandas</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/GamingAcademicPerformance" target="_blank">Ver en GitHub →</a>
+                            <span class="badge badge-int">EDA + ML + Visualización</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 ANÁLISIS DE DATOS -->
+        <section class="section" id="datos">
+            <div class="section-header">
+                <span class="section-label label-data">05 — Análisis de datos</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card featured">
+                    <div class="card-stripe stripe-data"></div>
+                    <div class="card-media tall">
+                        <img src="assets/images/dashboard_diabetes.gif" alt="Dashboard de Diabetes" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Diabetes Analytics Dashboard</div>
+                        <div class="card-desc">Análisis exploratorio de factores clínicos de riesgo en una población de 768 mujeres con predisposición a diabetes tipo 2. Tres páginas: Executive Summary, Risk Factor Analysis y Demographic Analysis. El 38,67% de las pacientes presenta diagnóstico positivo.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-dax">DAX</span>
+                            <span class="tag tag-default">Salud</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/DiabetesAnalytics" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-stripe stripe-data"></div>
+                    <div class="card-media normal">
+                        <img src="assets/images/dashboard_steam.gif" alt="Dashboard Steam Sales" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Steam Sales Dashboard</div>
+                        <div class="card-desc">Análisis de precios, descuentos y valoraciones del catálogo de Steam. Estrategia de pricing por categoría, evolución temporal 2006–2025 y ranking de ahorro por título. Ahorro acumulado total: $10.482,60.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-dax">DAX</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/SteamSalesAnalysis" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-stripe stripe-data"></div>
+                    <div class="card-media normal">
+                        <!-- ACTUALIZAR: añadir dashboard_mobilegame.gif a assets/images/ -->
+                        <img src="assets/images/dashboard_mobilegame.gif" alt="Dashboard Mobile Game In-App Purchases" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Mobile Game In-App Purchases</div>
+                        <div class="card-desc">Segmentación whales · dolphins · minnows en el mercado de videojuegos móviles. Los whales representan el 2,6% de usuarios y generan el 60% de los ingresos totales.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-dax">DAX</span>
+                            <span class="tag tag-default">Bing Maps</span>
+                        </div>
+                        <div class="card-footer">
+                            <!-- ACTUALIZAR URL cuando esté disponible -->
+                            <a class="card-link" href="https://github.com/alegonzjur/MobileGameInAppPurchases" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card featured">
+                    <div class="card-stripe stripe-data"></div>
+                    <div class="card-media normal">
+                        <img src="assets/images/dashboard_shoptrends.gif" alt="Dashboard Shopping Trends" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Análisis de tendencias de compras</div>
+                        <div class="card-desc">Análisis del comportamiento consumista y los patrones de compra de clientes de distintas partes del mundo. Información para mejorar el servicio y generar descuentos basándose en los datos obtenidos.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-default">SQL</span>
+                            <span class="tag tag-default">Excel</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/PBX_Dashboards/tree/main/ShoppingTrends" target="_blank">Ver en GitHub →</a>
+                        </div>
                     </div>
                 </div>
 
