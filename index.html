@@ -11,9 +11,15 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --accent-mlops:   #534AB7;
-            --accent-mlops-bg:#EEEDFE;
-            --accent-mlops-tx:#3C3489;
+            --accent-genai:   #6D28D9;
+            --accent-genai-bg:#EDE9FE;
+            --accent-genai-tx:#4C1D95;
+            --accent-mlops:   #1D4ED8;
+            --accent-mlops-bg:#DBEAFE;
+            --accent-mlops-tx:#1E3A8A;
+            --accent-auto:    #0F766E;
+            --accent-auto-bg: #CCFBF1;
+            --accent-auto-tx: #134E4A;
             --accent-ml:      #3B6D11;
             --accent-ml-bg:   #EAF3DE;
             --accent-ml-tx:   #27500A;
@@ -48,6 +54,7 @@
             min-height: 100vh;
         }
 
+        /* NAV */
         .site-nav {
             position: sticky;
             top: 0;
@@ -74,15 +81,15 @@
             color: var(--text-primary);
             text-decoration: none;
         }
-        .nav-links { display: flex; gap: 4px; list-style: none; }
+        .nav-links { display: flex; gap: 2px; list-style: none; flex-wrap: wrap; }
         .nav-links a {
             font-family: 'DM Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 0.05em;
+            font-size: 10px;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
             color: var(--text-secondary);
             text-decoration: none;
-            padding: 5px 10px;
+            padding: 4px 8px;
             border-radius: 20px;
             border: 0.5px solid transparent;
             transition: all 0.15s;
@@ -93,8 +100,10 @@
             background: var(--bg-secondary);
         }
 
+        /* LAYOUT */
         .container { max-width: 820px; margin: auto; padding: 0 2rem 5rem; }
 
+        /* HERO */
         .hero { padding: 5rem 0 4rem; }
         .hero-eyebrow {
             font-family: 'DM Mono', monospace;
@@ -136,6 +145,7 @@
         }
         .hero-link:hover { background: var(--bg-secondary); }
 
+        /* SECTION */
         .section { margin-bottom: 3.5rem; }
         .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.5rem; }
         .section-label {
@@ -148,15 +158,19 @@
             border-radius: 20px;
             white-space: nowrap;
         }
+        .label-genai { background: var(--accent-genai-bg); color: var(--accent-genai-tx); }
         .label-mlops { background: var(--accent-mlops-bg); color: var(--accent-mlops-tx); }
+        .label-auto  { background: var(--accent-auto-bg);  color: var(--accent-auto-tx); }
         .label-ml    { background: var(--accent-ml-bg);    color: var(--accent-ml-tx); }
         .label-nlp   { background: var(--accent-nlp-bg);   color: var(--accent-nlp-tx); }
         .label-int   { background: var(--accent-int-bg);   color: var(--accent-int-tx); }
         .label-data  { background: var(--accent-data-bg);  color: var(--accent-data-tx); }
         .section-line { flex: 1; height: 0.5px; background: var(--border); }
 
+        /* GRID */
         .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
+        /* CARD */
         .card {
             background: var(--bg-card);
             border: 0.5px solid var(--border);
@@ -170,7 +184,9 @@
         .card.featured { grid-column: 1 / -1; }
 
         .card-stripe { height: 3px; width: 100%; flex-shrink: 0; }
+        .stripe-genai { background: var(--accent-genai); }
         .stripe-mlops { background: var(--accent-mlops); }
+        .stripe-auto  { background: var(--accent-auto); }
         .stripe-ml    { background: var(--accent-ml); }
         .stripe-nlp   { background: var(--accent-nlp); }
         .stripe-int   { background: var(--accent-int); }
@@ -191,16 +207,39 @@
         .card:hover .card-media img { transform: scale(1.015); }
         .card-media.tall   img { height: 200px; }
         .card-media.normal img { height: 155px; }
+        .card-media.logo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1.5rem 2rem;
+            min-height: 120px;
+        }
+        .card-media.logo img {
+            height: 150px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
 
         .card-body { padding: 1rem 1.25rem 1.1rem; display: flex; flex-direction: column; flex: 1; }
         .card-title { font-size: 14px; font-weight: 600; line-height: 1.35; margin-bottom: 6px; color: var(--text-primary); }
         .card-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px; flex: 1; }
         .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
-        .tag { font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: 4px; }
+        .tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
         .tag-python  { background: #FAEEDA; color: #633806; }
         .tag-pbi     { background: #FAEEDA; color: #854F0B; }
         .tag-dax     { background: #E6F1FB; color: #0C447C; }
+        .tag-genai   { background: var(--accent-genai-bg); color: var(--accent-genai-tx); }
         .tag-mlops   { background: var(--accent-mlops-bg); color: var(--accent-mlops-tx); }
+        .tag-auto    { background: var(--accent-auto-bg);  color: var(--accent-auto-tx); }
         .tag-ml      { background: var(--accent-ml-bg);    color: var(--accent-ml-tx); }
         .tag-nlp     { background: #EEEDFE; color: #3C3489; }
         .tag-default { background: var(--bg-secondary); color: var(--text-secondary); }
@@ -209,7 +248,7 @@
         .card-link {
             font-size: 12.5px;
             font-weight: 500;
-            color: var(--accent-data);
+            color: var(--accent-genai);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -218,15 +257,25 @@
         }
         .card-link:hover { gap: 7px; }
 
-        .badge { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
+        .badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            padding: 3px 9px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .badge-genai { background: var(--accent-genai-bg); color: var(--accent-genai-tx); }
         .badge-mlops { background: var(--accent-mlops-bg); color: var(--accent-mlops-tx); }
+        .badge-auto  { background: var(--accent-auto-bg);  color: var(--accent-auto-tx); }
         .badge-int   { background: var(--accent-int-bg);   color: var(--accent-int-tx); }
 
+        /* audio */
         .audio-block { padding: 0.75rem 1.25rem; border-top: 0.5px solid var(--border); }
         .audio-label { font-size: 11px; color: var(--text-tertiary); font-family: 'DM Mono', monospace; margin-bottom: 5px; }
         audio { width: 100%; height: 32px; }
         .card-iframe { width: 100%; border: none; display: block; }
 
+        /* FOOTER */
         .site-footer {
             border-top: 0.5px solid var(--border);
             padding: 2rem 0 0;
@@ -239,7 +288,8 @@
         .footer-text { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-tertiary); }
         .footer-links { display: flex; gap: 8px; }
 
-        @media (max-width: 600px) {
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
             .container { padding: 0 1.25rem 4rem; }
             .hero { padding: 3rem 0 2.5rem; }
             .cards-grid { grid-template-columns: 1fr; }
@@ -254,11 +304,13 @@
         <div class="nav-inner">
             <a class="nav-name" href="#">AR</a>
             <ul class="nav-links">
-                <li><a href="#mlops">01 MLOps</a></li>
-                <li><a href="#ml">02 ML</a></li>
-                <li><a href="#nlp">03 NLP</a></li>
-                <li><a href="#integrales">04 Integrales</a></li>
-                <li><a href="#datos">05 Análisis</a></li>
+                <li><a href="#genai">01 GenAI</a></li>
+                <li><a href="#mlops">02 MLOps</a></li>
+                <li><a href="#auto">03 Auto</a></li>
+                <li><a href="#ml">04 ML</a></li>
+                <li><a href="#nlp">05 NLP</a></li>
+                <li><a href="#integrales">06 Integrales</a></li>
+                <li><a href="#datos">07 Análisis</a></li>
             </ul>
         </div>
     </nav>
@@ -266,9 +318,9 @@
     <div class="container">
 
         <header class="hero">
-            <p class="hero-eyebrow">Data Scientist & Developer · Sevilla, España</p>
+            <p class="hero-eyebrow">Data Scientist &amp; Developer · Sevilla, España</p>
             <h1>Alejandro Román.<br><span class="muted">Análisis · Predicción · Impacto.</span></h1>
-            <p class="hero-desc">Del dato en bruto al resultado accionable: análisis exploratorio, visualización, modelado predictivo y despliegue de aplicaciones. Trabajo con Python, Power BI y técnicas de ML y NLP para extraer valor de los datos y resolver problemas reales.</p>
+            <p class="hero-desc">Del dato en bruto al resultado accionable: análisis exploratorio, modelado predictivo, sistemas RAG y agentes con LLMs, pipelines MLOps y automatización de flujos. Trabajo con Python, LangChain, Power BI y técnicas de ML, NLP y GenAI para extraer valor de los datos y resolver problemas reales.</p>
             <div class="hero-links">
                 <a class="hero-link" href="https://linkedin.com/in/alegonjur" target="_blank">↗ LinkedIn</a>
                 <a class="hero-link" href="https://github.com/alegonzjur" target="_blank">⌥ GitHub</a>
@@ -276,10 +328,99 @@
             </div>
         </header>
 
-        <!-- 01 MLOPS -->
+        <!-- 01 GENAI & AGENTES -->
+        <section class="section" id="genai">
+            <div class="section-header">
+                <span class="section-label label-genai">01 — GenAI &amp; Agentes</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="cards-grid">
+
+                <!-- Marvel Intelligence Assistant (featured) -->
+                <div class="card featured">
+                    <div class="card-stripe stripe-genai"></div>
+                    <div class="card-media tall">
+                        <!-- Añadir marvel_assistant.png a assets/images/ -->
+                        <img src="assets/images/marvel-rag.png" alt="Marvel Intelligence Assistant — interfaz Streamlit" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Marvel Intelligence Assistant</div>
+                        <div class="card-desc">Asistente conversacional híbrido RAG + SQL agent sobre el catálogo MCU/Marvel. Router inteligente que clasifica cada pregunta como narrativa, analítica o híbrida y encadena ChromaDB (semántico) con SQLite (tabular) según el caso. 19/19 golden questions, 39 tests con pytest, tracking de experimentos con MLflow y API FastAPI + frontend Streamlit.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-genai">LangChain</span>
+                            <span class="tag tag-genai">RAG</span>
+                            <span class="tag tag-genai">ChromaDB</span>
+                            <span class="tag tag-genai">Ollama</span>
+                            <span class="tag tag-mlops">FastAPI</span>
+                            <span class="tag tag-mlops">MLflow</span>
+                            <span class="tag tag-mlops">pytest</span>
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-default">Streamlit</span>
+                            <span class="tag tag-default">SQLite</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/MarvelIntelligenceAssistant" target="_blank">Ver en GitHub →</a>
+                            <span class="badge badge-genai">RAG + SQL Agent + Router</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LAILA-RAG -->
+                <div class="card">
+                    <div class="card-stripe stripe-genai"></div>
+                    <div class="card-media logo">
+                        <!-- Añadir laila_rag.png (logo Ollama/LangChain) a assets/images/ -->
+                        <img src="assets/images/ollama-logo-hd.png" alt="LAILA-RAG — RAG local con Ollama" loading="lazy">
+                        <img src="assets/images/langchain-logo.png" alt="LAILA-RAG — RAG local con Ollama" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">LAILA-RAG</div>
+                        <div class="card-desc">Sistema RAG completamente local sobre el TFM del proyecto LAILA. Chunking semántico por headers (PDF → Markdown → ChromaDB), agente con tools, implementación de HyDE y decisiones técnicas documentadas: trade-offs de retrieval, few-shot leakage y resultados mixtos de HyDE. Sin API keys de pago — todo vía Ollama.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-genai">RAG</span>
+                            <span class="tag tag-genai">LangChain</span>
+                            <span class="tag tag-genai">ChromaDB</span>
+                            <span class="tag tag-genai">Ollama</span>
+                            <span class="tag tag-genai">HyDE</span>
+                            <span class="tag tag-python">Python</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/LAILA-RAG" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCP-SQL-Server -->
+                <div class="card">
+                    <div class="card-stripe stripe-genai"></div>
+                    <div class="card-media logo">
+                        <!-- Añadir mcp_logo.png a assets/images/ -->
+                        <img src="assets/images/claude-logo-hd.png" alt="MCP SQL Server" loading="lazy">
+                         <img src="assets/images/postgresql-logo-hd.png" alt="MCP SQL Server" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">MCP SQL Server</div>
+                        <div class="card-desc">Servidor MCP genérico de solo lectura sobre bases de datos SQL (SQLite y PostgreSQL), construido con el SDK oficial de Python y SQLAlchemy. Expone tres tools estándar para cualquier cliente compatible (Claude Desktop, Claude Code). Guardrails: solo SELECT, whitelist de tablas, LIMIT forzado y timeout por query.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-genai">MCP</span>
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-default">SQLAlchemy</span>
+                            <span class="tag tag-default">SQLite</span>
+                            <span class="tag tag-default">PostgreSQL</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/MCP-SQL-Server" target="_blank">Ver en GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 02 MLOPS -->
         <section class="section" id="mlops">
             <div class="section-header">
-                <span class="section-label label-mlops">01 — MLOps</span>
+                <span class="section-label label-mlops">02 — MLOps</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
@@ -310,10 +451,42 @@
             </div>
         </section>
 
-        <!-- 02 MACHINE LEARNING -->
+        <!-- 03 AUTOMATIZACIÓN -->
+        <section class="section" id="auto">
+            <div class="section-header">
+                <span class="section-label label-auto">03 — Automatización</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="cards-grid">
+                <div class="card featured">
+                    <div class="card-stripe stripe-auto"></div>
+                    <div class="card-media normal">
+                        <!-- Añadir n8n_cronica.png a assets/images/ -->
+                        <img src="assets/images/n8n-cronica.png" alt="n8n Crónica Fútbol — workflow" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Crónica diaria de fútbol europeo</div>
+                        <div class="card-desc">Workflow de n8n que ejecuta cada día a las 8:00: consume feeds RSS de BBC Sport (Premier League + fútbol europeo), filtra y deduplica noticias, construye un prompt y llama a la API de Gemini para generar una crónica periodística en español, y la sube automáticamente al repositorio de GitHub vía commit nativo — sin git instalado en el servidor.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-auto">n8n</span>
+                            <span class="tag tag-genai">Gemini API</span>
+                            <span class="tag tag-default">RSS</span>
+                            <span class="tag tag-default">GitHub API</span>
+                            <span class="tag tag-default">Cron</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/n8n-CronicaFutbol" target="_blank">Ver en GitHub →</a>
+                            <span class="badge badge-auto">Automatización diaria</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 MACHINE LEARNING -->
         <section class="section" id="ml">
             <div class="section-header">
-                <span class="section-label label-ml">02 — Machine learning</span>
+                <span class="section-label label-ml">04 — Machine learning</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
@@ -377,10 +550,10 @@
             </div>
         </section>
 
-        <!-- 03 NLP -->
+        <!-- 05 NLP -->
         <section class="section" id="nlp">
             <div class="section-header">
-                <span class="section-label label-nlp">03 — NLP</span>
+                <span class="section-label label-nlp">05 — NLP</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
@@ -442,36 +615,14 @@
             </div>
         </section>
 
-        <!-- 04 PROYECTOS INTEGRALES -->
+        <!-- 06 PROYECTOS INTEGRALES -->
         <section class="section" id="integrales">
             <div class="section-header">
-                <span class="section-label label-int">04 — Proyectos integrales</span>
+                <span class="section-label label-int">06 — Proyectos integrales</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
-                <div class="card featured">
-                    <div class="card-stripe stripe-int"></div>
-                    <div class="card-media tall">
-                        <img src="assets/images/gap.png" alt="Gaming Academic Performance" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <div class="card-title">Gaming &amp; Academic Performance</div>
-                        <div class="card-desc">Pipeline completo sobre datos reales de alumnos: análisis exploratorio del impacto del gaming en el rendimiento académico, modelado predictivo con XGBoost y Random Forest, y segmentación de perfiles de jugador mediante clustering. Incluye matrices de confusión, curvas ROC y visualización de resultados.</div>
-                        <div class="card-tags">
-                            <span class="tag tag-python">Python</span>
-                            <span class="tag tag-pbi">Power BI</span>
-                            <span class="tag tag-ml">XGBoost</span>
-                            <span class="tag tag-ml">Random Forest</span>
-                            <span class="tag tag-ml">Clustering</span>
-                            <span class="tag tag-default">Scikit-Learn</span>
-                            <span class="tag tag-default">Pandas</span>
-                        </div>
-                        <div class="card-footer">
-                            <a class="card-link" href="https://github.com/alegonzjur/GamingAcademicPerformance" target="_blank">Ver en GitHub →</a>
-                            <span class="badge badge-int">EDA + ML + Visualización</span>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="card featured">
                     <div class="card-stripe stripe-int"></div>
                     <div class="card-media tall">
@@ -495,13 +646,38 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="card featured">
+                    <div class="card-stripe stripe-int"></div>
+                    <div class="card-media tall">
+                        <img src="assets/images/gap.png" alt="Gaming Academic Performance" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Gaming &amp; Academic Performance</div>
+                        <div class="card-desc">Pipeline completo sobre datos reales de alumnos: análisis exploratorio del impacto del gaming en el rendimiento académico, modelado predictivo con XGBoost y Random Forest, y segmentación de perfiles de jugador mediante clustering. Incluye matrices de confusión, curvas ROC y visualización de resultados.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-python">Python</span>
+                            <span class="tag tag-pbi">Power BI</span>
+                            <span class="tag tag-ml">XGBoost</span>
+                            <span class="tag tag-ml">Random Forest</span>
+                            <span class="tag tag-ml">Clustering</span>
+                            <span class="tag tag-default">Scikit-Learn</span>
+                            <span class="tag tag-default">Pandas</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/GamingAcademicPerformance" target="_blank">Ver en GitHub →</a>
+                            <span class="badge badge-int">EDA + ML + Visualización</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- 05 ANÁLISIS DE DATOS -->
+        <!-- 07 ANÁLISIS DE DATOS -->
         <section class="section" id="datos">
             <div class="section-header">
-                <span class="section-label label-data">05 — Análisis de datos</span>
+                <span class="section-label label-data">07 — Análisis de datos</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
