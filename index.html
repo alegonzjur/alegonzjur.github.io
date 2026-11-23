@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio — Alejandro Román</title>
+    <title>Portfolio — Alejandro González Jurado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -29,6 +29,9 @@
             --accent-int:     #0F6E56;
             --accent-int-bg:  #E1F5EE;
             --accent-int-tx:  #085041;
+            --accent-web:     #C2410C;
+            --accent-web-bg:  #FFEDD5;
+            --accent-web-tx:  #7C2D12;
             --accent-data:    #185FA5;
             --accent-data-bg: #E6F1FB;
             --accent-data-tx: #0C447C;
@@ -164,6 +167,7 @@
         .label-ml    { background: var(--accent-ml-bg);    color: var(--accent-ml-tx); }
         .label-nlp   { background: var(--accent-nlp-bg);   color: var(--accent-nlp-tx); }
         .label-int   { background: var(--accent-int-bg);   color: var(--accent-int-tx); }
+        .label-web   { background: var(--accent-web-bg);   color: var(--accent-web-tx); }
         .label-data  { background: var(--accent-data-bg);  color: var(--accent-data-tx); }
         .section-line { flex: 1; height: 0.5px; background: var(--border); }
 
@@ -188,6 +192,7 @@
         .stripe-mlops { background: var(--accent-mlops); }
         .stripe-auto  { background: var(--accent-auto); }
         .stripe-ml    { background: var(--accent-ml); }
+        .stripe-web   { background: var(--accent-web); }
         .stripe-nlp   { background: var(--accent-nlp); }
         .stripe-int   { background: var(--accent-int); }
         .stripe-data  { background: var(--accent-data); }
@@ -207,21 +212,7 @@
         .card:hover .card-media img { transform: scale(1.015); }
         .card-media.tall   img { height: 200px; }
         .card-media.normal img { height: 155px; }
-        .card-media.logo {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            padding: 1.5rem 2rem;
-            min-height: 120px;
-        }
-        .card-media.logo img {
-            height: 150px;
-            width: auto;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
+        .card-media.logo   img { height: 100px; object-fit: contain; padding: 1rem; background: var(--bg-secondary); }
 
         .card-body { padding: 1rem 1.25rem 1.1rem; display: flex; flex-direction: column; flex: 1; }
         .card-title { font-size: 14px; font-weight: 600; line-height: 1.35; margin-bottom: 6px; color: var(--text-primary); }
@@ -242,6 +233,7 @@
         .tag-auto    { background: var(--accent-auto-bg);  color: var(--accent-auto-tx); }
         .tag-ml      { background: var(--accent-ml-bg);    color: var(--accent-ml-tx); }
         .tag-nlp     { background: #EEEDFE; color: #3C3489; }
+        .tag-web     { background: var(--accent-web-bg);   color: var(--accent-web-tx); }
         .tag-default { background: var(--bg-secondary); color: var(--text-secondary); }
 
         .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
@@ -267,6 +259,8 @@
         .badge-genai { background: var(--accent-genai-bg); color: var(--accent-genai-tx); }
         .badge-mlops { background: var(--accent-mlops-bg); color: var(--accent-mlops-tx); }
         .badge-auto  { background: var(--accent-auto-bg);  color: var(--accent-auto-tx); }
+        .badge-web   { background: var(--accent-web-bg);   color: var(--accent-web-tx); }
+        .badge-priv  { background: var(--bg-secondary); color: var(--text-secondary); }
         .badge-int   { background: var(--accent-int-bg);   color: var(--accent-int-tx); }
 
         /* audio */
@@ -306,11 +300,12 @@
             <ul class="nav-links">
                 <li><a href="#genai">01 GenAI</a></li>
                 <li><a href="#mlops">02 MLOps</a></li>
-                <li><a href="#auto">03 Auto</a></li>
-                <li><a href="#ml">04 ML</a></li>
-                <li><a href="#nlp">05 NLP</a></li>
-                <li><a href="#integrales">06 Integrales</a></li>
-                <li><a href="#datos">07 Análisis</a></li>
+                <li><a href="#web">03 Web</a></li>
+                <li><a href="#auto">04 Auto</a></li>
+                <li><a href="#ml">05 ML</a></li>
+                <li><a href="#nlp">06 NLP</a></li>
+                <li><a href="#integrales">07 Integrales</a></li>
+                <li><a href="#datos">08 Análisis</a></li>
             </ul>
         </div>
     </nav>
@@ -320,7 +315,7 @@
         <header class="hero">
             <p class="hero-eyebrow">Data Scientist &amp; Developer · Sevilla, España</p>
             <h1>Alejandro Román.<br><span class="muted">Análisis · Predicción · Impacto.</span></h1>
-            <p class="hero-desc">Del dato en bruto al resultado accionable: análisis exploratorio, modelado predictivo, sistemas RAG y agentes con LLMs, pipelines MLOps y automatización de flujos. Trabajo con Python, LangChain, Power BI y técnicas de ML, NLP y GenAI para extraer valor de los datos y resolver problemas reales.</p>
+            <p class="hero-desc">Del dato en bruto al resultado accionable: análisis exploratorio, visualización, modelado predictivo y despliegue de aplicaciones. Trabajo con Python, Power BI y técnicas de ML y NLP para extraer valor de los datos, y desarrollo aplicaciones web (Django, React, Flask, FastAPI) que resuelven problemas reales.</p>
             <div class="hero-links">
                 <a class="hero-link" href="https://linkedin.com/in/alegonjur" target="_blank">↗ LinkedIn</a>
                 <a class="hero-link" href="https://github.com/alegonzjur" target="_blank">⌥ GitHub</a>
@@ -341,7 +336,7 @@
                     <div class="card-stripe stripe-genai"></div>
                     <div class="card-media tall">
                         <!-- Añadir marvel_assistant.png a assets/images/ -->
-                        <img src="assets/images/marvel-rag.png" alt="Marvel Intelligence Assistant — interfaz Streamlit" loading="lazy">
+                        <img src="assets/images/marvel_assistant.png" alt="Marvel Intelligence Assistant — interfaz Streamlit" loading="lazy">
                     </div>
                     <div class="card-body">
                         <div class="card-title">Marvel Intelligence Assistant</div>
@@ -370,8 +365,7 @@
                     <div class="card-stripe stripe-genai"></div>
                     <div class="card-media logo">
                         <!-- Añadir laila_rag.png (logo Ollama/LangChain) a assets/images/ -->
-                        <img src="assets/images/ollama-logo-hd.png" alt="LAILA-RAG — RAG local con Ollama" loading="lazy">
-                        <img src="assets/images/langchain-logo.png" alt="LAILA-RAG — RAG local con Ollama" loading="lazy">
+                        <img src="assets/images/laila_rag.png" alt="LAILA-RAG — RAG local con Ollama" loading="lazy">
                     </div>
                     <div class="card-body">
                         <div class="card-title">LAILA-RAG</div>
@@ -395,8 +389,7 @@
                     <div class="card-stripe stripe-genai"></div>
                     <div class="card-media logo">
                         <!-- Añadir mcp_logo.png a assets/images/ -->
-                        <img src="assets/images/claude-logo-hd.png" alt="MCP SQL Server" loading="lazy">
-                         <img src="assets/images/postgresql-logo-hd.png" alt="MCP SQL Server" loading="lazy">
+                        <img src="assets/images/mcp_logo.png" alt="MCP SQL Server" loading="lazy">
                     </div>
                     <div class="card-body">
                         <div class="card-title">MCP SQL Server</div>
@@ -451,10 +444,136 @@
             </div>
         </section>
 
-        <!-- 03 AUTOMATIZACIÓN -->
+        <!-- 03 APLICACIONES WEB -->
+        <section class="section" id="web">
+            <div class="section-header">
+                <span class="section-label label-web">03 — Aplicaciones web</span>
+                <div class="section-line"></div>
+            </div>
+            <div class="cards-grid">
+
+                <div class="card">
+                    <div class="card-stripe stripe-web"></div>
+                    <div class="card-body">
+                        <div class="card-title">Wiketing — Plataforma de tickets y soporte interno</div>
+                        <div class="card-desc">Aplicación full-stack de gestión de tickets (helpdesk y seguimiento de tareas). API REST con Django REST Framework (filtros y búsqueda), autenticación JWT, auditoría automática de cambios mediante signals, y frontend React con listado, detalle con historial y comentarios, y un dashboard de métricas (distribución por estado, categoría y prioridad, tendencia mensual y tiempo medio de resolución). Entorno completo con Docker Compose.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-web">Django REST</span>
+                            <span class="tag tag-web">React</span>
+                            <span class="tag tag-web">Vite</span>
+                            <span class="tag tag-default">PostgreSQL</span>
+                            <span class="tag tag-default">JWT</span>
+                            <span class="tag tag-mlops">Docker Compose</span>
+                            <span class="tag tag-default">Tailwind</span>
+                        </div>
+                        <div class="card-footer">
+                            <a class="card-link" href="https://github.com/alegonzjur/Wiketing" target="_blank" style="color:var(--accent-web)">Ver en GitHub →</a>
+                            <span class="badge badge-web">Full-stack · Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-stripe stripe-web"></div>
+                    <div class="card-body">
+                        <div class="card-title">Reservas de aulas</div>
+                        <div class="card-desc">Aplicación para gestionar las reservas de aulas de un centro: peticiones del profesorado, aceptación o rechazo por parte de mantenimiento, bloqueo automático de conflictos con reservas aceptadas, series semanales con excepciones por fecha, calendario de consulta y auditoría de quién decide y cuándo. En producción detrás de nginx con HTTPS.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-web">Django</span>
+                            <span class="tag tag-web">HTMX</span>
+                            <span class="tag tag-default">PostgreSQL</span>
+                            <span class="tag tag-default">Waitress</span>
+                            <span class="tag tag-default">nginx</span>
+                            <span class="tag tag-default">NSSM</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-desc" style="margin:0;flex:none;font-size:11.5px">Código privado</span>
+                            <span class="badge badge-priv">En producción</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-stripe stripe-web"></div>
+                    <div class="card-body">
+                        <div class="card-title">Control de Formación</div>
+                        <div class="card-desc">Control de las actividades formativas del personal: roles de administrador y lector, búsqueda por empleado y por curso, y relación empleado–curso con nivel y horas, sin duplicados. Despliegue nativo en Windows Server como servicio, con PostgreSQL.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-web">Django</span>
+                            <span class="tag tag-web">React</span>
+                            <span class="tag tag-default">PostgreSQL</span>
+                            <span class="tag tag-default">Windows Server</span>
+                            <span class="tag tag-default">NSSM</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-desc" style="margin:0;flex:none;font-size:11.5px">Código privado</span>
+                            <span class="badge badge-priv">Uso interno</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-stripe stripe-web"></div>
+                    <div class="card-body">
+                        <div class="card-title">EntrevistasExpress</div>
+                        <div class="card-desc">Sistema de agendado de entrevistas multi-campus que automatiza la asignación de entrevistadores: de varias horas de trabajo manual a menos de quince minutos. Actualmente en reestructuración con arquitectura modular, procesos ETL y nuevas funcionalidades.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-web">Flask</span>
+                            <span class="tag tag-default">PostgreSQL</span>
+                            <span class="tag tag-default">ETL</span>
+                            <span class="tag tag-python">Python</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-desc" style="margin:0;flex:none;font-size:11.5px">Código privado</span>
+                            <span class="badge badge-priv">Uso interno</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-stripe stripe-web"></div>
+                    <div class="card-body">
+                        <div class="card-title">GestiónPagos</div>
+                        <div class="card-desc">Plataforma para la gestión y seguimiento de pagos de un departamento financiero. Roles de administrador, gestor y supervisor, navegación jerárquica (curso, centro, programa, modalidad y registros) y registro de auditoría inmutable mediante signals.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-web">Django</span>
+                            <span class="tag tag-default">PostgreSQL</span>
+                            <span class="tag tag-default">Signals</span>
+                            <span class="tag tag-python">Python</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-desc" style="margin:0;flex:none;font-size:11.5px">Código privado</span>
+                            <span class="badge badge-priv">Uso interno</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-stripe stripe-web"></div>
+                    <div class="card-body">
+                        <div class="card-title">Intranet corporativa</div>
+                        <div class="card-desc">Intranet con directorio de contactos y buscador por nombre completo, cargado desde Excel mediante un script de importación. Plantillas Jinja2, desplegada como servicio en Windows Server y accesible en la red local.</div>
+                        <div class="card-tags">
+                            <span class="tag tag-web">FastAPI</span>
+                            <span class="tag tag-default">Jinja2</span>
+                            <span class="tag tag-default">PostgreSQL</span>
+                            <span class="tag tag-default">SQLAlchemy</span>
+                            <span class="tag tag-default">NSSM</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-desc" style="margin:0;flex:none;font-size:11.5px">Código privado</span>
+                            <span class="badge badge-priv">Uso interno</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 04 AUTOMATIZACIÓN -->
         <section class="section" id="auto">
             <div class="section-header">
-                <span class="section-label label-auto">03 — Automatización</span>
+                <span class="section-label label-auto">04 — Automatización</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
@@ -462,7 +581,7 @@
                     <div class="card-stripe stripe-auto"></div>
                     <div class="card-media normal">
                         <!-- Añadir n8n_cronica.png a assets/images/ -->
-                        <img src="assets/images/n8n-cronica.png" alt="n8n Crónica Fútbol — workflow" loading="lazy">
+                        <img src="assets/images/n8n_cronica.png" alt="n8n Crónica Fútbol — workflow" loading="lazy">
                     </div>
                     <div class="card-body">
                         <div class="card-title">Crónica diaria de fútbol europeo</div>
@@ -486,7 +605,7 @@
         <!-- 04 MACHINE LEARNING -->
         <section class="section" id="ml">
             <div class="section-header">
-                <span class="section-label label-ml">04 — Machine learning</span>
+                <span class="section-label label-ml">05 — Machine learning</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
@@ -553,7 +672,7 @@
         <!-- 05 NLP -->
         <section class="section" id="nlp">
             <div class="section-header">
-                <span class="section-label label-nlp">05 — NLP</span>
+                <span class="section-label label-nlp">06 — NLP</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
@@ -618,7 +737,7 @@
         <!-- 06 PROYECTOS INTEGRALES -->
         <section class="section" id="integrales">
             <div class="section-header">
-                <span class="section-label label-int">06 — Proyectos integrales</span>
+                <span class="section-label label-int">07 — Proyectos integrales</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
@@ -626,7 +745,7 @@
                 <div class="card featured">
                     <div class="card-stripe stripe-int"></div>
                     <div class="card-media tall">
-                        <img src="assets/images/Recomendaciones.png" alt="Spotify Music Recommender — interfaz de recomendaciones" loading="lazy">
+                        <img src="assets/images/spotify_recommender.png" alt="Spotify Music Recommender" loading="lazy">
                     </div>
                     <div class="card-body">
                         <div class="card-title">Spotify Music Recommender</div>
@@ -650,7 +769,7 @@
                 <div class="card featured">
                     <div class="card-stripe stripe-int"></div>
                     <div class="card-media tall">
-                        <img src="assets/images/gap.png" alt="Gaming Academic Performance" loading="lazy">
+                        <img src="assets/images/gaming_academic.png" alt="Gaming Academic Performance" loading="lazy">
                     </div>
                     <div class="card-body">
                         <div class="card-title">Gaming &amp; Academic Performance</div>
@@ -677,7 +796,7 @@
         <!-- 07 ANÁLISIS DE DATOS -->
         <section class="section" id="datos">
             <div class="section-header">
-                <span class="section-label label-data">07 — Análisis de datos</span>
+                <span class="section-label label-data">08 — Análisis de datos</span>
                 <div class="section-line"></div>
             </div>
             <div class="cards-grid">
@@ -724,7 +843,7 @@
                 <div class="card">
                     <div class="card-stripe stripe-data"></div>
                     <div class="card-media normal">
-                        <img src="assets/images/mobilegame.png" alt="Dashboard Mobile Game In-App Purchases" loading="lazy">
+                        <img src="assets/images/dashboard_mobilegame.gif" alt="Dashboard Mobile Game In-App Purchases" loading="lazy">
                     </div>
                     <div class="card-body">
                         <div class="card-title">Mobile Game In-App Purchases</div>
@@ -765,7 +884,7 @@
         </section>
 
         <footer class="site-footer">
-            <span class="footer-text">© 2025 Alejandro Román · alegonzjur.github.io</span>
+            <span class="footer-text">© 2026 Alejandro Román · alegonzjur.github.io</span>
             <div class="footer-links">
                 <a class="hero-link" href="https://linkedin.com/in/alegonjur" target="_blank" style="font-size:12px;padding:6px 12px;">LinkedIn</a>
                 <a class="hero-link" href="https://github.com/alegonzjur" target="_blank" style="font-size:12px;padding:6px 12px;">GitHub</a>
